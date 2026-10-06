@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Braciere — Braceria d'autore</title>
+  <meta name="description" content="Braciere, braceria fine-dining: carni pregiate selezionate, cottura alla brace di legna, cantina d'abbinamento.">
+  <meta name="theme-color" content="#121212">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Braciere — torna all'inizio">
+      <span class="nav__mark" aria-hidden="true"></span>
+      Braciere
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Navigazione principale">
+      <a href="#filosofia">Filosofia</a>
+      <a href="#carni">Le Carni</a>
+      <a href="#ambiente">Ambiente</a>
+      <a href="#cantina">Cantina</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#prenota" class="btn btn--small" data-call>Prenota</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Benvenuti da Braciere">
+      <div class="hero__media" data-parallax="0.35">
+        <img class="ph" src="img/hero.jpg" alt="Bistecca spessa sulla griglia, fiamme vive e braci incandescenti nella penombra" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+      <div class="hero__fireglow" aria-hidden="true"></div>
+      <canvas class="hero__embers" id="embers" aria-hidden="true"></canvas>
+
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow">Braceria d'autore</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Il fuoco.</span></span>
+          <span class="line"><span>La carne.</span></span>
+          <span class="line"><span><em>L'arte della brace.</em></span></span>
+        </h1>
+        <p class="hero__subtitle">Tagli scelti, legna di quercia e il tempo giusto. Una cucina che parla la lingua più antica: quella della fiamma.</p>
+        <div class="hero__cta">
+          <a href="#carni" class="btn">Scopri il menu</a>
+          <a href="#prenota" class="btn btn--ghost" data-call>Prenota un tavolo</a>
+        </div>
+      </div>
+
+      <a href="#filosofia" class="hero__scroll" aria-label="Scorri alla sezione successiva">
+        <span>Scorri</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ============ FILOSOFIA ============ -->
+    <section class="section philosophy" id="filosofia">
+      <div class="container philosophy__grid">
+        <div class="philosophy__text">
+          <p class="eyebrow reveal">La filosofia</p>
+          <h2 class="title reveal">Tutto comincia<br><em>dalla materia.</em></h2>
+          <p class="lead reveal">Non esiste brace che possa salvare una carne mediocre. Per questo il nostro lavoro inizia molto prima del fuoco: nella scelta paziente di allevamenti che rispettano i tempi dell'animale, del pascolo, della stagione.</p>
+          <p class="reveal">Ogni taglio riposa in cella di frollatura finché fibra e grasso non trovano il loro equilibrio. Poi arriva la legna — quercia e ulivo, accese ore prima del servizio — e una griglia che conosce il peso del silenzio. Nessuna fretta, nessun artificio: solo calore, fumo e la mano di chi sa quando fermarsi.</p>
+
+          <ul class="pillars">
+            <li class="reveal">
+              <span class="pillars__num">I</span>
+              <h3>Selezione</h3>
+              <p>Razze scelte capo per capo, filiere tracciabili, rispetto assoluto per l'animale.</p>
+            </li>
+            <li class="reveal">
+              <span class="pillars__num">II</span>
+              <h3>Frollatura</h3>
+              <p>Riposo controllato in cella, perché tenerezza e profumo arrivino al loro apice.</p>
+            </li>
+            <li class="reveal">
+              <span class="pillars__num">III</span>
+              <h3>Brace</h3>
+              <p>Solo legna nobile, solo fuoco vivo. La crosta, il cuore rosato, il fumo che resta.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="philosophy__media">
+          <figure class="frame frame--tall reveal">
+            <div class="frame__inner wipe">
+              <img class="ph" src="img/fuoco.jpg" alt="Fiamma viva che si alza nella notte" data-parallax="0.12" loading="lazy" decoding="async">
+            </div>
+            <figcaption>Il fuoco, acceso ore prima del servizio</figcaption>
+          </figure>
+          <figure class="frame frame--small reveal">
+            <div class="frame__inner wipe">
+              <img class="ph" src="img/selezione.jpg" alt="Taglio di manzo marezzato con rosmarino" data-parallax="0.08" loading="lazy" decoding="async">
+            </div>
+            <figcaption>La materia prima</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="quote" aria-label="Citazione">
+      <blockquote class="container reveal">
+        <p>«Il fuoco non perdona l'impazienza. Ma a chi sa aspettare, restituisce tutto.»</p>
+        <cite>— La cucina di Braciere</cite>
+      </blockquote>
+    </section>
+
+    <!-- ============ CARNI ============ -->
+    <section class="section cuts" id="carni">
+      <div class="divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Le carni selezionate</p>
+          <h2 class="title reveal">Tagli che meritano<br><em>il fuoco vivo.</em></h2>
+          <p class="section__intro reveal">Una carta essenziale, che cambia con la disponibilità della cella. Ogni taglio viene presentato al tavolo prima della cottura.</p>
+        </div>
+
+        <div class="cuts__grid">
+          <article class="cut reveal">
+            <div class="cut__media wipe">
+              <img class="ph" src="img/fiorentina.jpg" alt="Bistecca con l'osso a T su ghiaccio, pronta per la brace" loading="lazy" decoding="async">
+              <span class="cut__tag">Firma della casa</span>
+            </div>
+            <div class="cut__body">
+              <h3>Fiorentina</h3>
+              <p class="cut__meta">Lombata con osso a T · Frollatura lunga</p>
+              <p>Alta tre dita, cotta in piedi sull'osso e poi sui due lati. Crosta sapida, cuore rosso e caldo, profumo di quercia e burro nocciola.</p>
+              <div class="cut__foot">
+                <span>Per due persone</span>
+                <span class="cut__price">€ — al kg</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut reveal">
+            <div class="cut__media wipe">
+              <img class="ph" src="img/tomahawk.jpg" alt="Bistecca con osso in padella di ghisa" loading="lazy" decoding="async">
+              <span class="cut__tag">Da condividere</span>
+            </div>
+            <div class="cut__body">
+              <h3>Tomahawk</h3>
+              <p class="cut__meta">Costata con osso lungo · Marezzatura intensa</p>
+              <p>Spettacolare e generosa. Il grasso infiltrato si scioglie lentamente sulla brace, regalando una succosità piena e una nota quasi dolce.</p>
+              <div class="cut__foot">
+                <span>Per due o tre persone</span>
+                <span class="cut__price">€ — al kg</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut reveal">
+            <div class="cut__media wipe">
+              <img class="ph" src="img/costata.jpg" alt="Costata alla brace tagliata a fette" loading="lazy" decoding="async">
+              <span class="cut__tag">Classico</span>
+            </div>
+            <div class="cut__body">
+              <h3>Costata</h3>
+              <p class="cut__meta">Senza osso · Taglio del macellaio</p>
+              <p>Il cuore della tradizione. Equilibrio perfetto tra magro e grasso, servita a fette su legno caldo con sale in fiocchi e olio nuovo.</p>
+              <div class="cut__foot">
+                <span>Individuale</span>
+                <span class="cut__price">€ — </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut reveal">
+            <div class="cut__media wipe">
+              <img class="ph" src="img/filetto.jpg" alt="Filetto al sangue impiattato" loading="lazy" decoding="async">
+              <span class="cut__tag">Delicato</span>
+            </div>
+            <div class="cut__body">
+              <h3>Filetto</h3>
+              <p class="cut__meta">Cuore di filetto · Cottura lenta</p>
+              <p>Tenerezza assoluta. Sigillato a fiamma alta, poi lasciato riposare accanto alla brace finché il calore non raggiunge il centro.</p>
+              <div class="cut__foot">
+                <span>Individuale</span>
+                <span class="cut__price">€ — </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="cuts__note reveal">Prezzi e disponibilità indicativi — la carta definitiva viene presentata al tavolo.</p>
+      </div>
+    </section>
+
+    <!-- ============ AMBIENTE ============ -->
+    <section class="section ambience" id="ambiente">
+      <div class="ambience__hero">
+        <div class="ambience__bg" data-parallax="0.25">
+          <img class="ph" src="img/sala.jpg" alt="Sala del ristorante in penombra, luci calde" loading="lazy" decoding="async">
+        </div>
+        <div class="ambience__overlay container">
+          <p class="eyebrow reveal">L'ambiente</p>
+          <h2 class="title reveal">Legno, ferro<br><em>e luce calda.</em></h2>
+          <p class="reveal">Una sala raccolta, pensata per rallentare. Tavoli in noce scuro, pelle invecchiata, ferro brunito e una luce bassa che lascia al fuoco il ruolo di protagonista.</p>
+        </div>
+      </div>
+
+      <div class="container ambience__grid">
+        <figure class="tile reveal">
+          <div class="tile__media wipe"><img class="ph" src="img/brace-vista.jpg" alt="Chef al lavoro tra le fiamme della griglia" loading="lazy" decoding="async"></div>
+          <figcaption>
+            <h3>La brace a vista</h3>
+            <p>Il cuore della sala: una griglia aperta dove osservare la carne prendere colore, tra scintille e fumo di quercia.</p>
+          </figcaption>
+        </figure>
+        <figure class="tile reveal">
+          <div class="tile__media wipe"><img class="ph" src="img/tavolo.jpg" alt="Sala con tavoli apparecchiati e luce calda" loading="lazy" decoding="async"></div>
+          <figcaption>
+            <h3>La sala</h3>
+            <p>Pochi coperti, spazi ampi, coltelli forgiati a mano. Ogni dettaglio è scelto per accompagnare, mai per distrarre.</p>
+          </figcaption>
+        </figure>
+        <figure class="tile reveal">
+          <div class="tile__media wipe"><img class="ph" src="img/saletta.jpg" alt="Bottiglie di vino allineate sugli scaffali" loading="lazy" decoding="async"></div>
+          <figcaption>
+            <h3>La saletta riservata</h3>
+            <p>Per cene private e occasioni speciali, circondati dalle bottiglie della cantina e da una luce color ambra.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CANTINA ============ -->
+    <section class="section cellar" id="cantina">
+      <div class="divider" aria-hidden="true"></div>
+      <div class="container cellar__grid">
+        <div class="cellar__media reveal">
+          <div class="frame__inner wipe">
+            <img class="ph" src="img/calice.jpg" alt="Vino rosso versato nel calice, carne affettata sullo sfondo" data-parallax="0.1" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="cellar__text">
+          <p class="eyebrow reveal">La cantina</p>
+          <h2 class="title reveal">Il vino giusto<br><em>per ogni fiamma.</em></h2>
+          <p class="lead reveal">Una selezione costruita attorno alla carne: rossi strutturati, annate importanti, piccoli produttori da scoprire. Il nostro sommelier vi guida nell'abbinamento, taglio per taglio.</p>
+
+          <ul class="pairings">
+            <li class="reveal">
+              <div><span class="pairings__cut">Fiorentina</span><span class="pairings__line"></span></div>
+              <p>Rossi toscani di grande struttura, tannino fitto e lunga persistenza.</p>
+            </li>
+            <li class="reveal">
+              <div><span class="pairings__cut">Tomahawk</span><span class="pairings__line"></span></div>
+              <p>Rossi del Piemonte e della Valtellina, eleganti e capaci di sgrassare.</p>
+            </li>
+            <li class="reveal">
+              <div><span class="pairings__cut">Costata</span><span class="pairings__line"></span></div>
+              <p>Rossi del Sud, caldi e speziati, che dialogano con il fumo.</p>
+            </li>
+            <li class="reveal">
+              <div><span class="pairings__cut">Filetto</span><span class="pairings__line"></span></div>
+              <p>Rossi più sottili e profumati, per non coprirne la delicatezza.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERIA ============ -->
+    <section class="section gallery" id="galleria">
+      <div class="divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="eyebrow reveal">Galleria</p>
+          <h2 class="title reveal">Frammenti <em>di fuoco.</em></h2>
+        </div>
+
+        <div class="gallery__grid">
+          <button class="gallery__item g-wide reveal" data-caption="Carne sulla brace, fiamme vive">
+            <img class="ph" src="img/hero.jpg" alt="Carne sulla brace, fiamme vive" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item g-tall reveal" data-caption="La fiamma, prima di tutto">
+            <img class="ph" src="img/fuoco.jpg" alt="La fiamma, prima di tutto" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="Un calice di rosso nella penombra">
+            <img class="ph" src="img/calice.jpg" alt="Un calice di rosso nella penombra" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="La sala in penombra">
+            <img class="ph" src="img/sala.jpg" alt="La sala in penombra" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item g-tall reveal" data-caption="Taglio con osso, pronto per il fuoco">
+            <img class="ph" src="img/tomahawk.jpg" alt="Taglio con osso, pronto per il fuoco" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="Cuore rosato, crosta scura">
+            <img class="ph" src="img/tagliata.jpg" alt="Cuore rosato, crosta scura" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item g-wide reveal" data-caption="La brace a vista">
+            <img class="ph" src="img/brace-vista.jpg" alt="La brace a vista" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="La materia prima, selezionata">
+            <img class="ph" src="img/selezione.jpg" alt="La materia prima, selezionata" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="Il vino, compagno della brace">
+            <img class="ph" src="img/vino-uva.jpg" alt="Il vino, compagno della brace" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="La crosta che solo la brace sa dare">
+            <img class="ph" src="img/carne-brace.jpg" alt="La crosta che solo la brace sa dare" loading="lazy" decoding="async">
+          </button>
+          <button class="gallery__item  reveal" data-caption="Dalla nostra cantina">
+            <img class="ph" src="img/bottiglia.jpg" alt="Dalla nostra cantina" loading="lazy" decoding="async">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRENOTAZIONI ============ -->
+    <section class="section booking" id="prenota">
+      <div class="divider" aria-hidden="true"></div>
+      <div class="booking__glow" aria-hidden="true"></div>
+      <div class="container booking__grid">
+        <div class="booking__info">
+          <p class="eyebrow reveal">Contatti &amp; prenotazioni</p>
+          <h2 class="title reveal">Il vostro posto<br><em>accanto al fuoco.</em></h2>
+          <p class="reveal">Accogliamo pochi ospiti per sera, per dedicare a ciascuno il tempo che merita. Vi consigliamo di prenotare con anticipo.</p>
+
+          <dl class="contact">
+            <div class="reveal">
+              <dt>Indirizzo</dt>
+              <dd>Via del Fuoco, 00<br>00000 Città (XX)</dd>
+            </div>
+            <div class="reveal">
+              <dt>Telefono</dt>
+              <dd><a href="tel:+390000000000">+39 000 000 0000</a></dd>
+            </div>
+            <div class="reveal">
+              <dt>Email</dt>
+              <dd><a href="mailto:info@braciere.example">info@braciere.example</a></dd>
+            </div>
+            <div class="reveal">
+              <dt>Orari</dt>
+              <dd>Martedì – Domenica · solo cena<br>Lunedì chiuso</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="form reveal" id="bookingForm" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <input type="text" id="name" name="name" placeholder=" " required autocomplete="name">
+              <label for="name">Nome e cognome</label>
+            </div>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
+              <label for="email">Email</label>
+            </div>
+            <div class="field">
+              <input type="tel" id="phone" name="phone" placeholder=" " required autocomplete="tel" pattern="[0-9+\s()\-]{6,}">
+              <label for="phone">Telefono</label>
+            </div>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field field--static">
+              <input type="date" id="date" name="date" required>
+              <label for="date">Data</label>
+            </div>
+            <div class="field field--static">
+              <select id="guests" name="guests" required>
+                <option value="" disabled selected>Seleziona</option>
+                <option>1 persona</option>
+                <option>2 persone</option>
+                <option>3 persone</option>
+                <option>4 persone</option>
+                <option>5 persone</option>
+                <option>6 persone</option>
+                <option>7 persone</option>
+                <option>8 persone</option>
+                <option>Più di 8 — gruppo</option>
+              </select>
+              <label for="guests">Numero di persone</label>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="field">
+              <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
+              <label for="message">Messaggio, allergie, occasioni speciali</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--full">Richiedi prenotazione</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="nav__logo"><span class="nav__mark" aria-hidden="true"></span>Braciere</a>
+      <p>Braceria d'autore · Carni selezionate alla brace di legna</p>
+      <p class="footer__small">© <span id="year"></span> Braciere. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <!-- ============ MODALE TELEFONO ============ -->
+  <div class="callmodal" id="callModal" role="dialog" aria-modal="true" aria-labelledby="callTitle" hidden>
+    <div class="callmodal__backdrop" data-close></div>
+    <div class="callmodal__panel">
+      <button class="callmodal__close" data-close aria-label="Chiudi">&times;</button>
+      <span class="callmodal__ember" aria-hidden="true"></span>
+      <p class="eyebrow">Prenotazioni</p>
+      <h2 class="callmodal__title" id="callTitle">Riservate il vostro tavolo<br><em>con una telefonata.</em></h2>
+      <a href="tel:+390000000000" class="callmodal__number"><span class="callmodal__plus">+</span>39 000 000 0000</a>
+      <p class="callmodal__hours">Martedì – Domenica · solo cena</p>
+      <div class="callmodal__actions">
+        <a href="tel:+390000000000" class="btn">Chiama ora</a>
+        <button type="button" class="btn btn--ghost" id="copyPhone" data-phone="+39 000 000 0000">Copia numero</button>
+      </div>
+      <a href="#prenota" class="callmodal__alt" data-close>Preferite scrivere? Compilate il modulo&nbsp;&rarr;</a>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galleria fotografica" hidden>
+    <button class="lightbox__close" id="lbClose" aria-label="Chiudi">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Immagine precedente">&#8249;</button>
+    <figure class="lightbox__figure">
+      <div class="lightbox__media" id="lbMedia"></div>
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Immagine successiva">&#8250;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
