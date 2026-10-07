@@ -404,6 +404,19 @@
             </div>
           </div>
           <div class="form__row">
+            <div class="field field--static field--table">
+              <span class="field__label" id="tableLabel">Tavolo</span>
+              <div class="tablepick" aria-labelledby="tableLabel">
+                <span class="tablepick__value" id="tableValue" aria-live="polite">Nessuna preferenza</span>
+                <span class="tablepick__actions">
+                  <button type="button" class="btn btn--ghost btn--small" id="tableOpen">Scegli il tavolo</button>
+                  <button type="button" class="tablepick__link" id="tableChange" hidden>Cambia</button>
+                  <button type="button" class="tablepick__link" id="tableClear" hidden>Rimuovi</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form__row">
             <div class="field">
               <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
               <label for="message">Messaggio, allergie, occasioni speciali</label>
@@ -453,6 +466,35 @@
       <figcaption id="lbCaption"></figcaption>
     </figure>
     <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Immagine successiva">&#8250;</button>
+  </div>
+
+  <!-- ============ PIANTINA TAVOLI ============ -->
+  <div class="tablemap" id="tableMap" role="dialog" aria-modal="true" aria-labelledby="tmTitle" hidden>
+    <button class="lightbox__close tablemap__close" id="tmClose" aria-label="Chiudi">&times;</button>
+    <div class="tablemap__dialog">
+      <header class="tablemap__head">
+        <h2 class="tablemap__title" id="tmTitle">Scegliete il tavolo</h2>
+        <p class="tablemap__hint" id="tmHint"></p>
+        <ul class="tablemap__legend">
+          <li><span class="swatch swatch--free"></span>Disponibile</li>
+          <li><span class="swatch swatch--sel"></span>Selezionato</li>
+          <li><span class="swatch swatch--off"></span>Troppo piccolo per il vostro gruppo</li>
+        </ul>
+      </header>
+      <div class="tablemap__plan" id="tmPlan"></div>
+      <div class="tablemap__foot">
+        <p class="tablemap__empty" id="tmEmpty">Toccate un tavolo sulla piantina per vederne i dettagli.</p>
+        <div class="tablemap__pick" id="tmPick" hidden>
+          <div class="tablemap__pick-text">
+            <p class="tablemap__pick-title" id="tmPickTitle"></p>
+            <p class="tablemap__pick-meta" id="tmPickMeta"></p>
+            <p class="tablemap__pick-desc" id="tmPickDesc"></p>
+          </div>
+          <button type="button" class="btn" id="tmConfirm">Conferma tavolo</button>
+        </div>
+        <p class="tablemap__note">La scelta del tavolo è una preferenza: la confermeremo quando vi ricontatteremo.</p>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
