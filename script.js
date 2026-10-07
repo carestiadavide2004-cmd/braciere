@@ -302,6 +302,27 @@
   today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   dateInput.min = today.toISOString().split('T')[0];
 
+  // il lunedì il ristorante è chiuso
+  const CLOSED_MSG = 'Il lunedì siamo chiusi, scegliete un altro giorno';
+  const parseDate = (value) => {
+    const [y, m, d] = value.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  };
+  const checkClosedDay = () => {
+    const closed = dateInput.value !== '' && parseDate(dateInput.value).getDay() === 1;
+    dateInput.setCustomValidity(closed ? CLOSED_MSG : '');
+    dateInput.closest('.field').classList.toggle('is-invalid', closed);
+    if (closed) {
+      status.className = 'form__status is-error';
+      status.textContent = CLOSED_MSG;
+    } else if (status.textContent === CLOSED_MSG) {
+      status.className = 'form__status';
+      status.textContent = '';
+    }
+    return !closed;
+  };
+  dateInput.addEventListener('change', checkClosedDay);
+
   form.addEventListener('input', (e) => {
     const field = e.target.closest('.field');
     if (field && e.target.checkValidity()) field.classList.remove('is-invalid');
@@ -312,6 +333,7 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const openDay = checkClosedDay();
     let valid = true;
     form.querySelectorAll('.field input, .field select, .field textarea').forEach((el) => {
       const ok = el.checkValidity();
@@ -321,7 +343,7 @@
 
     status.className = 'form__status';
     if (!valid) {
-      status.textContent = 'Controllate i campi evidenziati, per favore.';
+      status.textContent = openDay ? 'Controllate i campi evidenziati, per favore.' : CLOSED_MSG;
       status.classList.add('is-error');
       return;
     }
@@ -336,6 +358,7 @@
       email: f.email.value.trim(),
       telefono: f.phone.value.trim(),
       data: f.date.value,
+      orario: f.time.value,
       persone: f.guests.value,
       messaggio: f.message.value.trim()
     };
@@ -354,7 +377,8 @@
       if (!res.ok || !data.success) throw new Error(data.message || res.status);
 
       const name = payload.nome.split(' ')[0];
-      status.textContent = `Grazie, ${name}. Vi ricontatteremo a breve per confermare il vostro tavolo.`;
+      const day = parseDate(payload.data).toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+      status.textContent = `Grazie, ${name}. Abbiamo ricevuto la vostra richiesta per ${day} alle ${payload.orario}. Vi ricontatteremo a breve per confermare.`;
       status.classList.add('is-ok');
       form.reset();
     } catch (err) {
