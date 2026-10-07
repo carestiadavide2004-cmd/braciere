@@ -362,7 +362,7 @@
               <label for="email">Email</label>
             </div>
             <div class="field">
-              <input type="tel" id="phone" name="phone" placeholder=" " required autocomplete="tel" pattern="[0-9+\s()\-]{6,}">
+              <input type="tel" id="phone" name="phone" placeholder=" " required autocomplete="tel" pattern="[0-9+\s\(\)\-]{6,}">
               <label for="phone">Telefono</label>
             </div>
           </div>
@@ -393,6 +393,7 @@
               <label for="message">Messaggio, allergie, occasioni speciali</label>
             </div>
           </div>
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
           <button type="submit" class="btn btn--full">Richiedi prenotazione</button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>

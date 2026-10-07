@@ -307,10 +307,13 @@
     if (field && e.target.checkValidity()) field.classList.remove('is-invalid');
   });
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn.textContent;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
-    form.querySelectorAll('input, select, textarea').forEach((el) => {
+    form.querySelectorAll('.field input, .field select, .field textarea').forEach((el) => {
       const ok = el.checkValidity();
       el.closest('.field').classList.toggle('is-invalid', !ok);
       if (!ok && valid) { el.focus(); valid = false; }
@@ -323,14 +326,43 @@
       return;
     }
 
-    /*
-      Il sito è statico (GitHub Pages): per ricevere davvero le richieste
-      collegare il form a un servizio come Formspree o Netlify Forms,
-      oppure sostituire con un invio via mailto.
-    */
-    const name = form.elements.name.value.trim().split(' ')[0];
-    status.textContent = `Grazie, ${name}. Vi ricontatteremo a breve per confermare il vostro tavolo.`;
-    status.classList.add('is-ok');
-    form.reset();
+    const f = form.elements;
+    const payload = {
+      access_key: '5937ef40-2020-4a9f-991e-662529408b49',
+      subject: 'Nuova prenotazione dal sito Braciere',
+      from_name: 'Sito Braciere',
+      botcheck: f.botcheck.checked,
+      nome: f.name.value.trim(),
+      email: f.email.value.trim(),
+      telefono: f.phone.value.trim(),
+      data: f.date.value,
+      persone: f.guests.value,
+      messaggio: f.message.value.trim()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Invio in corso…';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message || res.status);
+
+      const name = payload.nome.split(' ')[0];
+      status.textContent = `Grazie, ${name}. Vi ricontatteremo a breve per confermare il vostro tavolo.`;
+      status.classList.add('is-ok');
+      form.reset();
+    } catch (err) {
+      status.textContent = 'Si è verificato un errore, riprova o chiamaci';
+      status.classList.add('is-error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
+    }
   });
 })();
